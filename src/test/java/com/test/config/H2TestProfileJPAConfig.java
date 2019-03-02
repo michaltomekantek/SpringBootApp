@@ -29,7 +29,7 @@ public class H2TestProfileJPAConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:file:~/mainDb");
+        dataSource.setUrl("jdbc:h2:file:~/workspaceDb");
         dataSource.setUsername("sa");
         dataSource.setPassword("sa");
         dataSource.setConnectionProperties(additionalProperties());
@@ -60,7 +60,7 @@ public class H2TestProfileJPAConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.show_sql", "true");
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.hbm2ddl.auto", "create");
         properties.setProperty(
                 "hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 
